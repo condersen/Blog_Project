@@ -6,5 +6,5 @@ if (isset($_POST['id']) AND !empty($_POST['id']))
 {
 	$result = delete_post($_POST['id']);
 }
-
 echo (int)$result;
+?>
