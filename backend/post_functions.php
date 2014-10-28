@@ -66,3 +66,19 @@ function get_post($id = NULL)
 
     return $posts;
 }
+
+/**
+ * Delete a post based on its ID
+ * @param int $id Post ID
+ * @return bool Returns TRUE on successful deletion. False otherwise.
+ */
+function delete_post($id)
+{
+    $delete_query = 'DELETE FROM '.TBL_POSTS.' WHERE `post_id`='.(int)$id;
+    if($result = mysql_query($delete_query))
+    {
+        return TRUE;
+    }
+
+    return FALSE;
+}

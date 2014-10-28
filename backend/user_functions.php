@@ -88,5 +88,54 @@ function get_user($id = NULL)
 function logout_session()
 {
     unset($_SESSION['user']);
+    session_destroy();
     return TRUE;
+}
+
+/**
+ * Check whether a username or email is unique
+ * @param string $field "username" or "email", the field to check for uniqueness
+ * @param string $value Field value
+ * @return bool Returns FALSE if entry is not unique. TRUE otherwise.
+ */
+function unique_check($field, $value)
+{
+    $select_query = 'SELECT user_id FROM '.TBL_USERS;
+    switch($field)
+    {
+        case 'username':
+            $select_query .= ' WHERE username="'.addslashes($value).'"';
+            break;
+        case 'email':
+            $select_query .= ' WHERE email="'.addslashes($value).'"';
+            break;
+    }
+
+    if($result = mysql_query($select_query))
+    {
+        if(mysql_num_rows($result) > 0)
+        {
+            return FALSE;
+        }
+
+        return TRUE;
+    }
+
+    return TRUE;
+}
+
+/**
+ * Delete a user based on its ID
+ * @param int $id User ID
+ * @return bool Returns TRUE on successful deletion. False otherwise.
+ */
+function delete_user($id)
+{
+    $delete_query = 'DELETE FROM '.TBL_USERS.' WHERE `user_id`='.(int)$id;
+    if($result = mysql_query($delete_query))
+    {
+        return TRUE;
+    }
+
+    return FALSE;
 }

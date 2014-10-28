@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Clean Blog</title>
+    <title>Not Clean Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -57,7 +57,7 @@
                     <a href="login.php">Log In</a>
                 </li>
                 <li>
-                    <a href="register.php">register</a>
+                    <a href="registration.php">register</a>
                 </li>
             </ul>
         </div>

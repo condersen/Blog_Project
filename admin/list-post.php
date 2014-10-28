@@ -18,7 +18,6 @@ $posts = get_post();
     	<table class="table table-striped">
     		<tr>
     			<th>Post #</th>
-    			<th>Poster ID</th>
     			<th>Title</th>
     			<th>Posted</th>
     			<th>options</th>
@@ -26,10 +25,9 @@ $posts = get_post();
 	    	<?php foreach($posts as $post) { ?>
 	    	<tr>
 	    		<td><?php echo $post['post_id']; ?></td>
-	    		<td><?php echo $post['user_id']; ?></td>
 	    		<td><a href="post.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a></td>
 	    		<td><?php echo date('Y-m-d h:ia', $post['created_ts']); ?></td>
-	    		<td>options</td>
+	    		<td><span data-id="<?php echo $post['post_id']; ?>" onClick="remove_post" class="glyphicon glyphicon-remove remove-post"></span> | options</td>
 	    	</tr>
 	    	<?php } ?>
     	</table>

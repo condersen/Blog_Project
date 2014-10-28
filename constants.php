@@ -6,5 +6,5 @@ define("DB_PASS", "");
 define("DB_NAME", "blog");
 define("TBL_USERS", "`users`");
 define("TBL_POSTS", "`posts`");
-define("PAGE_LOGIN", '/LFSandbox/Week 6/Blog_project_New/login.php');
+define("PAGE_LOGIN", 'login.php');
 ?>
