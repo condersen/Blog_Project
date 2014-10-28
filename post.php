@@ -1,5 +1,5 @@
 <?php include 'template/headerProtected.php'; ?>
-<?php include 'backend/post_functions.php';
+<?php require 'backend/post_functions.php';
 $posts = get_post();
 ?>
 <!-- Page Header -->
@@ -11,7 +11,7 @@ $posts = get_post();
                 <div class="page-heading">
                     <h1><?php echo $post['post_title']; ?></h1>
                     <hr class="small">
-                    <span class="subheading">This is what I do.</span>
+                    <span class="subheading"><?php echo date('Y-m-d h:ia', $post['created_ts']); ?></span>
                 </div>
             </div>
         </div>

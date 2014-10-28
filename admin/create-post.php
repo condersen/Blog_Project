@@ -16,28 +16,14 @@
     	<?php
 			require_once '../backend/post_functions.php';
 			if(isset($_POST['post_title']) AND isset($_POST['post_body'])){
-				$result = add_post($_POST['post_title'], $_POST['post_body'], $_SESSION['user_id']);
+				$result = add_post($_POST['post_title'], $_POST['post_body'], $_SESSION['user']['user_id']);
 				if(is_array($result))
 				{
 					echo '<h1><small>Post succesfully added!</small></h1>';
 				} else { echo $result; }
 			}
 		?>
-    	<form id="blog_post" method="post">
-    		<div class="form-group">
-    			<h1><small>Title</small></h1>
-    			<input type="text" name="post_title" id="post_title" class="form-control"></input>
-    		</div>
-    		<div class="form-group">
-    			<h1><small>Write it out</small></h1>
-    			<textarea class="form-control" name="post_body" id="post_content" rows="10"></textarea>
-    		</div>
-    		<div class="form-group">
-    			<div class="col-sm-offset-5 col-sm-10">
-    				<button type="submit" class="btn btn-default">Submit</button>
-    			</div>
-    		</div>
-    	</form>
+    	<?php include 'adminTemplates/postForm.php'; ?>
     </div>
 </div>
 <?php include 'adminTemplates/footerTemplate.php'; ?>

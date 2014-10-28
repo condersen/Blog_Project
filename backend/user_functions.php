@@ -73,7 +73,7 @@ function get_user($id = NULL)
     $result = mysql_query($select_query);
 
     $users = array();
-    while ($row = mysql_fetch_array($result))
+    while ($row = mysql_fetch_assoc($result))
     {
         $users[] = $row;
     }
