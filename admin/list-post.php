@@ -26,10 +26,10 @@ $posts = get_post();
 	    	<?php foreach($posts as $post) { ?>
 				<tr>
 		    		<td><?php echo $post['post_id']; ?></td>
-		    		<td><a href="/LFprojects/Blog_Project_New/post.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a></td>
+		    		<td><a href="/post.php?id=<?php echo $post['id']; ?>"><?php echo $post['title']; ?></a></td>
 		    		<td><?php echo date('Y-m-d h:ia', $post['created_ts']); ?></td>
 		    		<td><span data_id="<?php echo $post['post_id']; ?>" class="glyphicon glyphicon-remove remove-post"></span> | 
-						<a href="/LFprojects/Blog_Project_New/admin/post.php?id=<?php echo $post['post_id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
+						<a href="/admin/post.php?id=<?php echo $post['post_id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a>
 					</td>
 				</tr>
 	    	<?php } ?>

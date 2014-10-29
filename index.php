@@ -9,9 +9,9 @@ $posts = get_post(); ?>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
-                    <h1>Clean Blog</h1>
+                    <h1>Not Clean Blog</h1>
                     <hr class="small">
-                    <span class="subheading">A Clean Blog Theme by Start Bootstrap</span>
+                    <span class="subheading"></span>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@ $posts = get_post(); ?>
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 			<?php foreach($posts as $post) { ?>
 		    	<ul class="list-clean list-left" style="text-decoration: none; list-style-type: none;">	
-		    		<li><h2><a href="/LFprojects/Blog_Project_New/post.php?id=<?php echo $post['post_id']; ?>"><?php echo $post['title']; ?></a></h2></li>
+		    		<li><h2><a href="/post.php?id=<?php echo $post['post_id']; ?>"><?php echo $post['title']; ?></a></h2></li>
 		    		<li><?php echo date('Y-m-d h:ia', $post['created_ts']); ?></li>
 		    	</ul>
 		    	<hr/>
