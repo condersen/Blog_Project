@@ -1,9 +1,12 @@
 <?php include 'template/headerProtected.php'; ?>
 <?php require 'backend/post_functions.php';
+require_once 'inc/my_functions.php';
 $post_id = $_GET['id'];
 
 $post = $post[o];
-
+	if (isset($_POST['comment'])) {
+	$result = add_comment($post_id, $_SESSION['user']['user_id'], $_POST['comment']);
+}
 $comments = get_post_comments($post_id);
 ?>
 <!-- Page Header -->
@@ -21,7 +24,24 @@ if(empty($post['picture'])) {
 }
 ?>
 <style>
-
+	.col-md-8 {
+		background: #DFDFDF;
+		margin-bottom: 10px;
+	}
+	
+	.list-clean, a {
+		list-style-type: none;
+		text-decoration: none;
+		margin: none;
+		padding: none;
+	}
+	
+	.username {
+		background: #cacaca;
+		width: 100%;
+	}
+	
+	
 </style>
 <header class="intro-header" style="background-image: url('img/headers/<?php echo $post['picture']; ?>')">
     <div class="container">
@@ -49,26 +69,45 @@ if(empty($post['picture'])) {
 <hr>
 
 <div id="comment-container">
-	<ul>
-		<?php 
-			foreach($comments as $comment){
-		?>
-			<li>
-				<p>
-					<?php echo $comment['']?>
-				</p>
-				<p>
-					<?php echo $comment['body']; ?>
-				</p>
-			</li>
-		<?php
-		}
-		?>
+	<ul class="list-clean list-left">
+		<?php foreach($comments as $comment){ ?>
+			<div class="comment-box col-md-8">
+				<li class="username">
+					<p>
+						<strong><?php echo $comment['username']; ?></strong>
+					
+						<?php echo format_time_since($comment['created_ts']).' ago '; ?>
+					</p>
+				</li>
+				<li>
+					<p>
+						<?php echo $comment['body']; ?>
+					</p>
+				</li>
+			</div>
+		<?php } ?>
 	</ul>
 </div>
 
 <hr>
+<?php
+	
+?>
 
+<form id="blog_post" method="post" enctype="multipart/form-data">
+
+	<div class="form-group">
+		<h1><small>Leave a Comment</small></h1>
+		<textarea class="col-xs-4" name="comment" id="post_content" rows="5"></textarea>
+	</div>
+	<br><br><br><br><br><br>
+	<div class="form-group">
+		<div class="col-sm-offset-1 col-sm-1">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+	</div>
+</form>
+<!--
 <div id="comment-section">
 	<h3>Comment</h3>
 	<form class="col-md-4" id="comment-form">
@@ -76,7 +115,8 @@ if(empty($post['picture'])) {
 		<input class="btn btn-default" type="button" value="Submit"/>
 	</form>
 </div>
-<!--
+
+
 <script>
 	var post_id = <?php echo $_GET['id']; ?>;
 	var user_id = <?php echo $_SESSION['user']['user_id']; ?>;
@@ -110,7 +150,7 @@ if(empty($post['picture'])) {
 <script src="js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="js/clean-blog.min.js"></script>
+<script src="js/clean-blog.js"></script>
 
 </body>
 

@@ -38,9 +38,7 @@ include 'adminTemplates/headerTemplate.php';
 			}
 		}
 		?>
-		<?php
-			include 'adminTemplates/postForm.php';
-		?>
+		<?php include 'adminTemplates/postForm.php'; ?>
 	</div>
 </div>
 <?php

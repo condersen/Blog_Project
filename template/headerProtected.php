@@ -1,4 +1,4 @@
-<?php include 'backend/sessions.php'; ?><!DOCTYPE html>
+<?php include 'backend/sessions.php'; require_once 'constants.php'; ?><!DOCTYPE html>
 <html lang="en">
 
 <head>
