@@ -26,6 +26,6 @@ function format_time_since($starttime){
 	$time_output = $time_output . $time_dif . ' second(s) ';
 	
 	return $time_output;
-}
+}	
 
 ?>

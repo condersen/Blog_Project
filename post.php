@@ -81,7 +81,7 @@ if(empty($post['picture'])) {
 				</li>
 				<li>
 					<p>
-						<?php echo $comment['body']; ?>
+						<?php echo addslashes($comment['body']); ?>
 					</p>
 				</li>
 			</div>
