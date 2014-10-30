@@ -25,7 +25,7 @@ $posts = get_post(); ?>
 			<?php foreach($posts as $post) { ?>
 		    	<ul class="list-clean list-left" style="text-decoration: none; list-style-type: none;">	
 		    		<li><h2><a href="/post.php?id=<?php echo $post['post_id']; ?>"><?php echo $post['title']; ?></a></h2></li>
-		    		<li><?php echo date('Y-m-d h:ia', $post['created_ts']); ?></li>
+		    		<li><?php echo 'posted on '.date('Y-m-d', $post['created_ts']); ?></li>
 		    	</ul>
 		    	<hr/>
 		    <?php } ?>
