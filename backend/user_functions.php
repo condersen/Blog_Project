@@ -12,11 +12,13 @@ function add_user($email, $username, $password)
 {
     global $db_link;
 
+	$hashed_password = sha1 ($password);
+
     $insert_query = 'INSERT '.TBL_USERS.'(`username`, `email`, `password`)
                         VALUES(
                             "'.addslashes($username).'",
                             "'.addslashes($email).'",
-                            "'.addslashes($password).'")';
+                            "'.addslashes($hashed_password).'")';
 
 
     if($result = mysql_query($insert_query))
@@ -35,10 +37,10 @@ function add_user($email, $username, $password)
 function login_user($username, $password)
 {
     global $db_link;
-
+	$hashed_password = sha1 ($password);
     $select_query = 'SELECT user_id, username, email FROM '.TBL_USERS.'
                         WHERE `username`="'.addslashes($username).'"
-                        AND `password`="'.addslashes($password).'"';
+                        AND `password`="'.addslashes($hashed_password).'"';
 
     $result = mysql_query($select_query);
     if(mysql_num_rows($result) == 0)

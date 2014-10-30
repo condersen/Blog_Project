@@ -67,21 +67,6 @@ include 'template/header.php';
 </div>
 
 <hr>
-
-<!-- Footer -->
-<?php
-include 'template/footerTemplate.php';
-?>
-
-<!-- jQuery -->
-<script src="js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="js/clean-blog.js"></script>
-
 <script>
 	$(function() {
 		$('username').blur(function() {
@@ -141,7 +126,7 @@ include 'template/footerTemplate.php';
 		});
 	});
 </script>
-
-</body>
-
-</html>
+<!-- Footer -->
+<?php
+include 'template/footerTemplate.php';
+?>

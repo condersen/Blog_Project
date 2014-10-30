@@ -25,7 +25,7 @@ $posts = get_post(); ?>
 			<?php foreach($posts as $post) { ?>
 		    	<ul class="list-clean list-left" style="text-decoration: none; list-style-type: none;">	
 		    		<li><h2><a href="/post.php?id=<?php echo $post['post_id']; ?>"><?php echo $post['title']; ?></a></h2></li>
-		    		<li><?php echo 'posted on '.date('Y-m-d', $post['created_ts']); ?></li>
+		    		<li><?php echo 'posted on '. date('Y-m-d', $post['created_ts']) .' by '. $post['username']; ?></li>
 		    	</ul>
 		    	<hr/>
 		    <?php } ?>
@@ -37,16 +37,3 @@ $posts = get_post(); ?>
 
 <!-- Footer -->
 <?php include 'template/footerTemplate.php'; ?>
-
-<!-- jQuery -->
-<script src="js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="js/clean-blog.min.js"></script>
-
-</body>
-
-</html>

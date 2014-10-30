@@ -3,10 +3,14 @@ include '../backend/user_functions.php'; ?><!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<script src="js/jquery-1.11.0.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+	
+	<!-- Custom Theme JavaScript -->
+	<script src="js/clean-blog.min.js"></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -66,7 +70,7 @@ include '../backend/user_functions.php'; ?><!DOCTYPE html>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="../login.php" onClick="session_destroy()"><i class="fa fa-fw fa-power-off"> Logout</i></a>
+                            <a href="../login.php"><i class="fa fa-fw fa-power-off" onClick="<?php logout_session(); ?>"> Logout</i></a>
                         </li>
                     </ul>
                 </li>

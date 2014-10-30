@@ -41,6 +41,11 @@ if(empty($post['picture'])) {
 		width: 100%;
 	}
 	
+	.comment-body {
+		width: 90%;
+		overflow: hidden;
+		margin: 10px 0 10px 0;
+	}
 	
 </style>
 <header class="intro-header" style="background-image: url('img/headers/<?php echo $post['picture']; ?>')">
@@ -73,16 +78,16 @@ if(empty($post['picture'])) {
 		<?php foreach($comments as $comment){ ?>
 			<div class="comment-box col-md-8">
 				<li class="username">
-					<p>
+					<div>
 						<strong><?php echo $comment['username']; ?></strong>
 					
 						<?php echo format_time_since($comment['created_ts']).' ago '; ?>
-					</p>
+					</div>
 				</li>
 				<li>
-					<p>
+					<div class="comment-body">
 						<?php echo addslashes($comment['body']); ?>
-					</p>
+					</div>
 				</li>
 			</div>
 		<?php } ?>
@@ -142,16 +147,3 @@ if(empty($post['picture'])) {
 
 <!-- Footer -->
 <?php include 'template/footerTemplate.php'; ?>
-
-<!-- jQuery -->
-<script src="js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="js/clean-blog.js"></script>
-
-</body>
-
-</html>

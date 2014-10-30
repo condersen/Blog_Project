@@ -47,15 +47,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="index.php">Home</a>
-                </li>
-                <li>
-                    <a href="login.php">Log In</a>
-                </li>
-                <li>
-                    <a href="registration.php">register</a>
-                </li>
+                <?php
+            	if(is_logged_in()) {
+            		echo '<li><a href="index.php">Home</a></li><li><a href="registration.php">Account</a></li><li><a href="login.php"><span onClick="'.logout_session().'">logout</span></a></li>';
+				} else {
+            		echo '<li><a href="index.php">Home</a></li><li><a href="login.php">Log In/Register</a></li>';
+				}
+                ?>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
